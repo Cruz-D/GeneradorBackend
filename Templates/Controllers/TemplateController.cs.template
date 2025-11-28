@@ -1,0 +1,59 @@
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using Templates.DTOs.Entity;
+using Templates.Interfaces.UseCases;
+
+namespace Templates.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class TemplateController : ControllerBase
+    {
+        private readonly IGetEntityUseCase _getUseCase;
+        private readonly ICreateEntityUseCase _createUseCase;
+        private readonly IUpdateEntityUseCase _updateUseCase;
+        private readonly IDeleteEntityUseCase _deleteUseCase;
+
+        public TemplateController(
+            IGetEntityUseCase getUseCase,
+            ICreateEntityUseCase createUseCase,
+            IUpdateEntityUseCase updateUseCase,
+            IDeleteEntityUseCase deleteUseCase)
+        {
+            _getUseCase = getUseCase;
+            _createUseCase = createUseCase;
+            _updateUseCase = updateUseCase;
+            _deleteUseCase = deleteUseCase;
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(string id)
+        {
+            var result = await _getUseCase.HandleAsync(id);
+            if (result == null) return NotFound();
+            return Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CreateEntityDTO dto)
+        {
+            var created = await _createUseCase.HandleAsync(dto);
+            return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(string id, [FromBody] UpdateEntityDTO dto)
+        {
+            var updated = await _updateUseCase.HandleAsync(id, dto);
+            if (updated == null) return NotFound();
+            return Ok(updated);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            await _deleteUseCase.HandleAsync(id);
+            return NoContent();
+        }
+    }
+}

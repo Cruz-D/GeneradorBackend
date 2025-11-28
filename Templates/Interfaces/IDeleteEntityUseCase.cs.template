@@ -1,0 +1,9 @@
+using System.Threading.Tasks;
+
+namespace Templates.Interfaces.UseCases
+{
+    public interface IDeleteEntityUseCase
+    {
+        Task HandleAsync(string id);
+    }
+}

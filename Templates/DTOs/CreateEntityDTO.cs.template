@@ -1,0 +1,9 @@
+namespace Templates.DTOs.Entity
+{
+    // Plantilla de DTO para crear una entidad
+    public class CreateEntityDTO
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+    }
+}

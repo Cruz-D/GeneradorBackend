@@ -6,12 +6,29 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.3" />
     <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
    
+  </ItemGroup>
+
+  <!-- Exclude .template files from all build/include item types so they won't be compiled or embedded -->
+  <ItemGroup>
+    <Compile Remove="**\*.template" />
+    <None Remove="**\*.template" />
+    <Content Remove="**\*.template" />
+    <EmbeddedResource Remove="**\*.template" />
+  </ItemGroup>
+
+  <!-- Keep .template files in the repo as non-packed files and not copied to output -->
+  <ItemGroup>
+    <None Include="**\*.template">
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

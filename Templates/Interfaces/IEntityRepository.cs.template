@@ -1,0 +1,13 @@
+using System.Threading.Tasks;
+using Templates.Models;
+
+namespace Templates.Interfaces.Repositories
+{
+    public interface IEntityRepository
+    {
+        Task<Entity?> GetByIdAsync(string id);
+        Task CreateAsync(Entity entity);
+        Task UpdateAsync(Entity entity);
+        Task DeleteAsync(string id);
+    }
+}

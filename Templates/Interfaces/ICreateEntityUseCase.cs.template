@@ -1,0 +1,10 @@
+using System.Threading.Tasks;
+using Templates.DTOs.Entity;
+
+namespace Templates.Interfaces.UseCases
+{
+    public interface ICreateEntityUseCase
+    {
+        Task<EntityDTO> HandleAsync(CreateEntityDTO dto);
+    }
+}

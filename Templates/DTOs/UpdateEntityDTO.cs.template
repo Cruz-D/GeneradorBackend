@@ -1,0 +1,9 @@
+namespace Templates.DTOs.Entity
+{
+    // Plantilla de DTO para actualizar una entidad
+    public class UpdateEntityDTO
+    {
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+    }
+}

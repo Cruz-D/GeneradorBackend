@@ -1,0 +1,21 @@
+using System.Threading.Tasks;
+using Templates.Interfaces.Repositories;
+using Templates.Models;
+
+namespace Templates.Services
+{
+    public class TemplateService
+    {
+        private readonly IEntityRepository _repository;
+
+        public TemplateService(IEntityRepository repository)
+        {
+            _repository = repository;
+        }
+
+        public async Task<Entity?> GetEntityAsync(string id)
+        {
+            return await _repository.GetByIdAsync(id);
+        }
+    }
+}

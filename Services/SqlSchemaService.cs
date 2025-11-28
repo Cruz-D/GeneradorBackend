@@ -1,11 +1,11 @@
 using Microsoft.Data.SqlClient;
 
 
-public class SqlSchemaReader
+public class SqlSchemaService
 {
     private readonly string _connectionString;
 
-    public SqlSchemaReader(string connectionString)
+    public SqlSchemaService(string connectionString)
     {
         _connectionString = connectionString;
     }

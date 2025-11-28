@@ -1,0 +1,34 @@
+using System.Threading.Tasks;
+using Templates.Interfaces.Repositories;
+using Templates.Models;
+
+namespace Templates.Repositories
+{
+    // Plantilla de repositorio (puede usar EF Core, CosmosDB, Dapper, etc.)
+    public class EntityRepository : IEntityRepository
+    {
+        public Task CreateAsync(Entity entity)
+        {
+            // Implementar persistencia
+            throw new System.NotImplementedException();
+        }
+
+        public Task DeleteAsync(string id)
+        {
+            // Implementar persistencia
+            throw new System.NotImplementedException();
+        }
+
+        public Task<Entity?> GetByIdAsync(string id)
+        {
+            // Implementar persistencia
+            throw new System.NotImplementedException();
+        }
+
+        public Task UpdateAsync(Entity entity)
+        {
+            // Implementar persistencia
+            throw new System.NotImplementedException();
+        }
+    }
+}

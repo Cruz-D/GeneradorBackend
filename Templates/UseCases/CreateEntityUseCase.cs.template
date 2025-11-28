@@ -1,0 +1,36 @@
+using System.Threading.Tasks;
+using Templates.DTOs.Entity;
+using Templates.Interfaces.Repositories;
+using Templates.Models;
+
+namespace Templates.UseCases
+{
+    public class CreateEntityUseCase : ICreateEntityUseCase
+    {
+        private readonly IEntityRepository _repository;
+
+        public CreateEntityUseCase(IEntityRepository repository)
+        {
+            _repository = repository;
+        }
+
+        public async Task<EntityDTO> HandleAsync(CreateEntityDTO dto)
+        {
+            var entity = new Entity
+            {
+                Id = System.Guid.NewGuid().ToString(),
+                Name = dto.Name,
+                Description = dto.Description
+            };
+
+            await _repository.CreateAsync(entity);
+
+            return new EntityDTO
+            {
+                Id = entity.Id,
+                Name = entity.Name,
+                Description = entity.Description
+            };
+        }
+    }
+}

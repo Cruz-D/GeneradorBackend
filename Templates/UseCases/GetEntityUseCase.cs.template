@@ -1,0 +1,30 @@
+using System.Threading.Tasks;
+using Templates.DTOs.Entity;
+using Templates.Interfaces.Repositories;
+
+namespace Templates.UseCases
+{
+    // Plantilla de caso de uso para obtener una entidad
+    public class GetEntityUseCase : IGetEntityUseCase
+    {
+        private readonly IEntityRepository _repository;
+
+        public GetEntityUseCase(IEntityRepository repository)
+        {
+            _repository = repository;
+        }
+
+        public async Task<EntityDTO?> HandleAsync(string id)
+        {
+            var entity = await _repository.GetByIdAsync(id);
+            if (entity == null) return null;
+
+            return new EntityDTO
+            {
+                Id = entity.Id,
+                Name = entity.Name,
+                Description = entity.Description
+            };
+        }
+    }
+}
