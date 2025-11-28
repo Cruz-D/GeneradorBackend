@@ -1,5 +1,6 @@
 using Microsoft.Data.SqlClient;
 
+
 public class SqlSchemaReader
 {
     private readonly string _connectionString;

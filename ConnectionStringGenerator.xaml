@@ -1,62 +1,73 @@
 ﻿<Window x:Class="GeneradorBackend.ConnectionStringGenerator"
        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-       Title="Generar cadena de conexión" Height="350" Width="420">
-   <!-- Contenedor principal con márgenes -->
-   <Grid Margin="10">
-       <!-- Definición de filas y columnas para organizar los controles -->
-       <Grid.RowDefinitions>
-           <RowDefinition Height="Auto"/> <!-- Fila para Servidor -->
-           <RowDefinition Height="Auto"/> <!-- Fila para Base de datos -->
-           <RowDefinition Height="Auto"/> <!-- Fila para Usuario -->
-           <RowDefinition Height="Auto"/> <!-- Fila para Contraseña -->
-           <RowDefinition Height="Auto"/> <!-- Fila para Seguridad integrada -->
-           <RowDefinition Height="Auto"/> <!-- Fila para Encrypt -->
-           <RowDefinition Height="Auto"/> <!-- Fila para Trust Server Certificate -->
-           <RowDefinition Height="*"/>    <!-- Fila para la cadena generada -->
-           <RowDefinition Height="Auto"/> <!-- Fila para los botones -->
-       </Grid.RowDefinitions>
-       <Grid.ColumnDefinitions>
-           <ColumnDefinition Width="160"/> <!-- Columna para etiquetas -->
-           <ColumnDefinition Width="*"/>   <!-- Columna para campos de entrada -->
-       </Grid.ColumnDefinitions>
+       Title="Generar cadena de conexión" Height="360" Width="420">
+    <!-- Contenedor principal con márgenes -->
+    <Grid Margin="15,15,15,10">
+        <!-- Definición de filas y columnas para organizar los controles -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Fila para Servidor -->
+            <RowDefinition Height="Auto"/>
+            <!-- Fila para Base de datos -->
+            <RowDefinition Height="Auto"/>
+            <!-- Fila para Usuario -->
+            <RowDefinition Height="Auto"/>
+            <!-- Fila para Contraseña -->
+            <RowDefinition Height="Auto"/>
+            <!-- Fila para Seguridad integrada -->
+            <RowDefinition Height="Auto"/>
+            <!-- Fila para Encrypt -->
+            <RowDefinition Height="Auto"/>
+            <!-- Fila para Trust Server Certificate -->
+            <RowDefinition Height="*"/>
+            <!-- Fila para la cadena generada -->
+            <RowDefinition Height="Auto"/>
+            <!-- Fila para los botones -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"/>
+            <!-- Columna para etiquetas -->
+            <ColumnDefinition Width="*"/>
+            <!-- Columna para campos de entrada -->
+        </Grid.ColumnDefinitions>
 
-       <!-- Etiqueta y campo para el nombre del servidor -->
-       <TextBlock Text="Servidor (Data Source):" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
-       <TextBox x:Name="ServerTextBox" Grid.Row="0" Grid.Column="1" Margin="5"/>
+        <!-- Etiqueta y campo para el nombre del servidor -->
+        <TextBlock Text="Servidor (Data Source):" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+        <TextBox x:Name="ServerTextBox" Grid.Row="0" Grid.Column="1" Margin="5"/>
 
-       <!-- Etiqueta y campo para el nombre de la base de datos -->
-       <TextBlock Text="Base de datos (Initial Catalog):" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
-       <TextBox x:Name="DatabaseTextBox" Grid.Row="1" Grid.Column="1" Margin="5"/>
+        <!-- Etiqueta y campo para el nombre de la base de datos -->
+        <TextBlock Text="Base de datos (Initial Catalog):" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+        <TextBox x:Name="DatabaseTextBox" Grid.Row="1" Grid.Column="1" Margin="5"/>
 
-       <!-- Etiqueta y campo para el usuario -->
-       <TextBlock Text="Usuario:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
-       <TextBox x:Name="UserTextBox" Grid.Row="2" Grid.Column="1" Margin="5" IsEnabled="False"/>
+        <!-- Etiqueta y campo para el usuario -->
+        <TextBlock Text="Usuario:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+        <TextBox x:Name="UserTextBox" Grid.Row="2" Grid.Column="1" Margin="5" IsEnabled="False"/>
 
-       <!-- Etiqueta y campo para la contraseña -->
-       <TextBlock Text="Contraseña:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
-       <PasswordBox x:Name="PasswordTextBox" Grid.Row="3" Grid.Column="1" Margin="5" IsEnabled="False"/>
+        <!-- Etiqueta y campo para la contraseña -->
+        <TextBlock Text="Contraseña:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+        <PasswordBox x:Name="PasswordTextBox" Grid.Row="3" Grid.Column="1" Margin="5" IsEnabled="False"/>
 
-       <!-- Etiqueta y CheckBox para seguridad integrada -->
-       <TextBlock Text="Seguridad integrada (Integrated Security):" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
-       <CheckBox x:Name="IntegratedSecurityCheckBox" Grid.Row="4" Grid.Column="1" Margin="5" IsChecked="True"/>
+        <!-- Etiqueta y CheckBox para seguridad integrada -->
+        <TextBlock Text="Seguridad integrada (Integrated Security):" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
+        <CheckBox x:Name="IntegratedSecurityCheckBox" Grid.Row="4" Grid.Column="1" Margin="5" IsChecked="True"/>
 
-       <!-- Opción para cifrar la conexión -->
-       <TextBlock Text="Cifrar conexión (Encrypt):" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"/>
-       <CheckBox x:Name="EncryptCheckBox" Grid.Row="5" Grid.Column="1" Margin="5" IsChecked="True"/>
+        <!-- Opción para cifrar la conexión -->
+        <TextBlock Text="Cifrar conexión (Encrypt):" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"/>
+        <CheckBox x:Name="EncryptCheckBox" Grid.Row="5" Grid.Column="1" Margin="5" IsChecked="True"/>
 
-       <!-- Opción para confiar en el certificado del servidor -->
-       <TextBlock Text="Confiar en certificado (Trust Server Certificate):" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center"/>
-       <CheckBox x:Name="TrustServerCertificateCheckBox" Grid.Row="6" Grid.Column="1" Margin="5" IsChecked="True"/>
+        <!-- Opción para confiar en el certificado del servidor -->
+        <TextBlock Text="Confiar en certificado (Trust Server Certificate):" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center"/>
+        <CheckBox x:Name="TrustServerCertificateCheckBox" Grid.Row="6" Grid.Column="1" Margin="5" IsChecked="True"/>
 
-       <!-- Etiqueta y campo de solo lectura para mostrar la cadena de conexión generada -->
-       <TextBlock Text="Cadena generada:" Grid.Row="7" Grid.Column="0" VerticalAlignment="Top"/>
-       <TextBox x:Name="ConnectionStringTextBox" Grid.Row="7" Grid.Column="1" Margin="5,8,5,85" Height="60" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap"/>
+        <!-- Etiqueta y campo de solo lectura para mostrar la cadena de conexión generada -->
+        <TextBlock Text="Cadena generada:" Grid.Row="7" Grid.Column="0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ConnectionStringTextBox" Grid.Row="7" Grid.Column="1" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextWrapping="Wrap" HorizontalAlignment="Stretch" Height="NaN" VerticalAlignment="Stretch" Width="NaN"/>
 
-       <!-- Botones para generar la cadena y aceptar la selección -->
-       <StackPanel Grid.Row="8" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
-           <Button Content="Generar" Width="80" Margin="0,0,10,0" Click="GenerateButton_Click"/>
-           <Button Content="Aceptar" Width="80" Click="AcceptButton_Click"/>
-       </StackPanel>
-   </Grid>
+        <!-- Botones para generar la cadena y aceptar la selección -->
+        <StackPanel Grid.Row="8" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button Content="Generar" Width="80" Margin="0,0,10,0" Click="GenerateButton_Click"/>
+            <Button Content="Aceptar" Width="80" Click="AcceptButton_Click"/>
+        </StackPanel>
+    </Grid>
 </Window>
